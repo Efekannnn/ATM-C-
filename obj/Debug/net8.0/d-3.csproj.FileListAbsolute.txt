@@ -12,3 +12,4 @@
 /home/user/Desktop/c-sharp-projects/d-3/obj/Debug/net8.0/d-3.pdb
 /home/user/Desktop/c-sharp-projects/d-3/obj/Debug/net8.0/d-3.genruntimeconfig.cache
 /home/user/Desktop/c-sharp-projects/d-3/obj/Debug/net8.0/ref/d-3.dll
+/home/user/Desktop/c-sharp-projects/d-3/obj/Debug/net8.0/d-3.sourcelink.json
