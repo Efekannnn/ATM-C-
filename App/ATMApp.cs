@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using ATMApp.Domain.Entities;
+using ATMApp.Domain.Interfaces;
+using ATMApp.UI;
 
 
 namespace ATMApp
 {
-    class Program
+    public class ATMApp : IUserLogin
     {
-        private List<Domain.Entities.UserAccount>? userAccountList;
-        private Domain.Entities.UserAccount? SelectedAccount;
+        private List<UserAccount>? userAccountList;
+        private UserAccount? SelectedAccount;
 
         public void InitializeData()
         {
-           userAccountList = new List<Domain.Entities.UserAccount>
+           userAccountList = new List<UserAccount>
            {
-                new Domain.Entities.UserAccount
+                new UserAccount
                 {
                     Id = 1,
                     CardNumber = 123456789001,
@@ -24,7 +27,7 @@ namespace ATMApp
                     TotalLoginAttempts = 0,
                     IsLocked = false
                 },
-                new Domain.Entities.UserAccount
+                new UserAccount
                 {
                     Id = 2,
                     CardNumber = 123456789002,
@@ -35,7 +38,7 @@ namespace ATMApp
                     TotalLoginAttempts = 0,
                     IsLocked = false
                 },
-                new Domain.Entities.UserAccount
+                new UserAccount
                 {
                     Id = 3,
                     CardNumber = 123456789003,
@@ -47,6 +50,18 @@ namespace ATMApp
                     IsLocked = false
                 }
            };
+        }
+
+        public void CheckCardNumberAndPin()
+        {
+            bool isCorrectLogin = false;
+            UserAccount tempUserAccount = new UserAccount();
+            
+            long cardNumber = Validator.Convert<long>("Enter your card number: ");
+            int cardPin = Convert.ToInt32(Utility.GetSecretInput("Enter your pin: "));
+            
+            tempUserAccount.CardNumber = cardNumber;
+            tempUserAccount.CardPin = cardPin;
         }
     }
 
